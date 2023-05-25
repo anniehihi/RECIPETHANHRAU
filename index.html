@@ -79,8 +79,8 @@
       const successMessage = document.getElementById("successMessage");
       const errorMessage = document.getElementById("errorMessage");
 
-      // Số điện thoại hợp lệ
-      const validPhoneNumber = ["0326088308"];
+      // Danh sách số điện thoại hợp lệ
+      const validPhoneNumbers = ["0326088308", "0987654321", "0123456789"];
 
       // Xử lý sự kiện khi người dùng nhấn nút Xác thực
       submitBtn.addEventListener("click", function () {
@@ -88,7 +88,7 @@
 
         localStorage.setItem("phone", phoneNumber);
 
-        if (phoneNumber === validPhoneNumber) {
+        if (validPhoneNumbers.includes(phoneNumber)) {
           // Hiển thị thông báo thành công
           successMessage.textContent = "Xác thực thành công!";
           successMessage.style.display = "block";
