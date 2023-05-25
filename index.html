@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Xác thực số điện thoại</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      .form-group input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      .form-group button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .message {
+        margin-top: 20px;
+        padding: 10px;
+        border-radius: 5px;
+        display: none;
+      }
+
+      .message.success {
+        background-color: #28a745;
+        color: #fff;
+      }
+
+      .message.error {
+        background-color: #dc3545;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Xác thực số điện thoại</h1>
+      <div class="form-group">
+        <label for="phone">Số điện thoại:</label>
+        <input type="tel" id="phone" placeholder="Nhập số điện thoại" />
+      </div>
+      <div class="form-group">
+        <button id="submitBtn">Xác thực</button>
+      </div>
+      <div class="message" id="successMessage"></div>
+      <div class="message" id="errorMessage"></div>
+    </div>
+
+    <script>
+      // Lấy các phần tử DOM cần sử dụng
+      const phoneInput = document.getElementById("phone");
+      const submitBtn = document.getElementById("submitBtn");
+      const successMessage = document.getElementById("successMessage");
+      const errorMessage = document.getElementById("errorMessage");
+
+      // Số điện thoại hợp lệ
+      const validPhoneNumber = "1234567890";
+
+      // Xử lý sự kiện khi người dùng nhấn nút Xác thực
+      submitBtn.addEventListener("click", function () {
+        const phoneNumber = phoneInput.value;
+
+        localStorage.setItem("phone", phoneNumber);
+
+        if (phoneNumber === validPhoneNumber) {
+          // Hiển thị thông báo thành công
+          successMessage.textContent = "Xác thực thành công!";
+          successMessage.style.display = "block";
+
+          // Chuyển hướng sang trang index.html
+          window.location.href = "reciepe.html";
+        } else {
+          // Hiển thị thông báo lỗi
+          errorMessage.textContent = "Số điện thoại không hợp lệ!";
+          errorMessage.style.display = "block";
+        }
+      });
+    </script>
+  </body>
+</html>

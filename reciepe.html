@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Công thức món ăn</title>
+    <style>
+      /* CSS cho layout chung */
+
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      /* CSS cho danh sách công thức */
+
+      .recipe-list {
+        list-style: none;
+        padding: 0;
+      }
+
+      .recipe-item {
+        margin-bottom: 20px;
+        padding: 20px;
+        background-color: #f2f2f2;
+        border-radius: 5px;
+      }
+
+      .recipe-title {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        cursor: pointer;
+      }
+
+      .recipe-description {
+        margin-bottom: 10px;
+        font-size: 15px;
+        color: red;
+      }
+
+      .recipe-details {
+        display: none;
+      }
+
+      .recipe-details.active {
+        display: block;
+      }
+      /* CSS cho responsive layout */
+
+      @media only screen and (max-width: 600px) {
+        .container {
+          max-width: 100%;
+          padding: 10px;
+        }
+
+        .recipe-item {
+          padding: 10px;
+        }
+
+        .recipe-title {
+          font-size: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Công thức các món nướng.</h1>
+      <ul class="recipe-list">
+        <li class="recipe-item">
+          <h2 class="recipe-title">Vịt quay lu</h2>
+          <i class="recipe-description">
+            ( Click vào tên món để xem chi tiết )
+          </i>
+          <div class="recipe-details">
+            <p>Chi tiết công thức món ăn 1.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <script>
+      // JavaScript để xử lý sự kiện bấm vào để hiển thị chi tiết công thức món ăn
+
+      // Lấy danh sách tất cả các tiêu đề công thức
+      const recipeTitles = document.querySelectorAll(".recipe-title");
+
+      // Duyệt qua từng tiêu đề công thức và thêm sự kiện click
+      recipeTitles.forEach((title) => {
+        title.addEventListener("click", () => {
+          // Tìm phần tử chứa chi tiết công thức bằng cách lần ngược lên phần tử cha
+          const recipeItem = title.parentElement;
+          const recipeDetails = recipeItem.querySelector(".recipe-details");
+
+          // Toggle class "active" để hiển thị/ẩn chi tiết công thức
+          recipeDetails.classList.toggle("active");
+        });
+      });
+
+      document.addEventListener("copy", function (e) {
+        e.preventDefault();
+        alert("Sao chép nội dung không được phép!");
+      });
+
+      const phoneNumber = localStorage.getItem("phone");
+      if (!phoneNumber) {
+        // Nếu chưa nhập, chuyển hướng về trang nhập số điện thoại
+        window.location.href = "index.html";
+      }
+    </script>
+  </body>
+</html>
