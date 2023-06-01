@@ -60,11 +60,11 @@
   </head>
   <body>
     <div class="container">
-      <h1>
+      <!-- <h1>
         Xin lỗi! Trang web đang gặp phải một số vấn đề! Chúng tôi sẽ khắc phục
         sớm nhất. Xin Cảm Ơn
-      </h1>
-      <!-- <div class="form-group">
+      </h1> -->
+      <div class="form-group">
         <label for="phone">Số điện thoại:</label>
         <input type="tel" id="phone" placeholder="Nhập số điện thoại" />
       </div>
@@ -72,7 +72,7 @@
         <button id="submitBtn">Xác thực</button>
       </div>
       <div class="message" id="successMessage"></div>
-      <div class="message" id="errorMessage"></div> -->
+      <div class="message" id="errorMessage"></div>
     </div>
 
     <script>
@@ -83,7 +83,47 @@
       const errorMessage = document.getElementById("errorMessage");
 
       // Danh sách số điện thoại hợp lệ
-      const validPhoneNumbers = ["0326088308", "0987654321", "0123456789"];
+      const validPhoneNumbers = [
+        "0326088308",
+        "0936606997",
+        "0826228111",
+        "0365682316",
+        "0971226928",
+        "0384323325",
+        "0962869466",
+        "0707072792",
+        "0967376263",
+        "0385261292",
+        "0385261292",
+        "0328505555",
+        "0857798268",
+        "0981230485",
+        "0369579558",
+        "0981230485",
+        "0358810885",
+        "0966568563",
+        "0373535720",
+        "0338873992",
+        "0356988668",
+        "0989616876",
+        "0789166041",
+        "0338679868",
+        "0962014984",
+        "0394658386",
+        "0988883352",
+        "0837090955",
+        "0707085222",
+        "0987720294",
+        "0365519077",
+        "0373355166",
+        "0973598678",
+        "0896709505",
+        "0988379735",
+        "0353542893",
+        "0397871835",
+        "0989908622",
+        "0353392084",
+      ];
 
       // Xử lý sự kiện khi người dùng nhấn nút Xác thực
       submitBtn.addEventListener("click", function () {
